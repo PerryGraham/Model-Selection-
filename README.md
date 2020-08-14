@@ -35,7 +35,7 @@ Purpose of this notebook:
     * [Stochastic Gradient Descent (Classifier)](#Stochastic-Gradient-Descent-(Classifier))
     * [Linear Discriminant Analysis](#Linear-Discriminant-Analysis)
     * [Quadratic Discriminant Analysis](#Quadratic-Discriminant-Analysis)
-    * [Naive Bayes (Mulrinomial)](#Naive-Bayes-(Mulrinomial))
+    * [Naive Bayes (Multinomial)](#Naive-Bayes-(Multinomial))
     * [Suppot Vector Classification](#Suppot-Vector-Classification)
 
 ### Regression 
@@ -256,7 +256,7 @@ This diagram from the scikit website helps show how disciminant analysis works
 
 -------
 
-#### [Naive Bayes (Mulrinomial)](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes)
+#### [Naive Bayes (Multinomial)](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes)
 
 `from sklearn.naive_bayes import MultinomialNB`
 
