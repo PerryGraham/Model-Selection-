@@ -3,20 +3,21 @@
 > ###### By: Graham Pinsent 
 
 ### - - Work in progress - - 
+
+last updated: Aug 15, 2020
+
 Things to add: 
-- Nearest neighbors
-- Decision trees 
-- Ensemble methods?
+- Ensemble methods
     - random forest regression
     - random forest classifier 
-    - bagging
+    - baggin classifier 
 * Fix ToC 
 
 Purpose of this notebook: 
-* Summary of machine learning models (from scikit-learn)
+* Summary of machine learning models commonly used for regression / classification (from scikit-learn)
 * Focuses on the applications of the models
 * Reading through documentation about these models can often be very intimidating for beginners, especially when you do not have a strong math background. This is meant to be written for more people to understand the difference between models. 
-* I am not an expert by any means, some say one of the best ways to learn is by teaching. Every model is a link to offical websites with more in depth information. 
+* I am not an expert by any means, some say one of the best ways to learn is by teaching. Every header is a link to offical websites with more in depth information. 
 
 #### Table of Contents 
 
@@ -28,6 +29,9 @@ Purpose of this notebook:
     * [Bayesian](#Bayesian)
     * [Stochastic Gradient Decent (Regression)](#Stochastic-Gradient-Decent-(Regression))
     * [Support Vector Regression](#Support-Vector-Regression)
+    * [DecisionTreeRegressor](#DecisionTreeRegressor)
+    * [BaggingRegressor](#BaggingRegressor)
+    * [RandomForestRegressor](#RandomForestRegressor)
     
     
 * [Classification](#Classification)
@@ -37,6 +41,10 @@ Purpose of this notebook:
     * [Quadratic Discriminant Analysis](#Quadratic-Discriminant-Analysis)
     * [Naive Bayes (Multinomial)](#Naive-Bayes-(Multinomial))
     * [Suppot Vector Classification](#Suppot-Vector-Classification)
+    * [KNeighborsClassifier](#KNeighborsClassifier)
+    * [DecisionTreeClassifier](#DecisionTreeClassifier)
+    * [BaggingClassifier](#BaggingClassifier)
+    * [RandomForestClassifier](#RandomForestClassifier)
 
 ### Regression 
 Regression problems invole predicting a value that is continuous. For example predicting the weight of something, or monthly sales. There is a range of possible outcomes. 
@@ -45,7 +53,7 @@ Regression problems invole predicting a value that is continuous. For example pr
 
 `from sklearn.linear_model import LinearRegression`
 
-Also known as: Ordinary Least Squares. Line of best fit where the average distance to each data point is the lowest possible with a straight line. 
+The Ordinary Least Squares method is a line of best fit where the average distance to each data point is the lowest possible with a straight line. 
 
 * Low bias 
 * High Varriance 
@@ -58,6 +66,7 @@ This is a simple, quick to run, model that will not pick up on complex relations
 * fit_intercept = (defualt-True) if false, the y-intercept=0
 * normalize = (default-FALSE) if true, X will be subtracted by the mean and divided by l2-norm. 
 * copy_X = (default-True) if true, X is copied not overwritten
+
 -------------
 
 
@@ -171,6 +180,68 @@ Support Vectors Machines are more commonly used for classification problems. Ref
 
 --------
 
+#### [DecisionTreeRegressor](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html#decision-tree-regression)
+
+`from sklearn.tree import DecisionTreeRegressor`
+
+Decision trees are often used for [classification](#DecisionTreeClassifier), however, can also be applied to regression problems. 
+
+* Less data prep is required for running this simple model 
+* Does not require normalization and scaling of the features
+* Handles missing values very well
+* Easy to interpret and explain 
+* Small changes in the data can cause large changes to the structure of the model 
+* Runs slowly with large amounts of data 
+* Not good for predicting data that is unrelated to the training data, for example time series 
+
+
+[Parameters](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor):
+* max_depth = (default 'None') will keep going untill all leaves are pure, unless you set thing number as an int. 
+* criterion = (default 'mse') stands for mean squared error, which is a method to reduce variance. Other methods are 'mae' and 'friedman_mse'.
+* min_sample_split, min_sample_leaf, and max_features can all be tuned to better fit the data. 
+
+This diagram shows how when the max_depth is set too high (5) it can cause overfitting, where nodes of the tree represent the noise in the data. However when the max_depth is set to 2 it captures the general shape of the sine function. 
+![](https://scikit-learn.org/stable/_images/sphx_glr_plot_tree_regression_001.png) <sub>[Reference](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html#decision-tree-regression)<sub>
+
+-----
+
+#### [BaggingRegressor](https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator)
+
+`from sklearn.ensemble import BaggingRegressor`
+
+The Bagging method 'bags' the training data into independent groups in order to train a model on different subsets of the data. Then each model makes a prediction, where all the predictions are added up to produce your final prediction. This method is used in atempt to reduce variance with using only one trained model on the whole training data. 
+
+* Good to use when there is a lot of varriance or overfitting with single models 
+* Longer time to run, needs to train and fit multiple models for one prediction 
+* Only use when the ensemble method is giving more accurate results than a single method, otherwise you are wasiting a lot of computing
+* This model will not help when ther is high bias 
+
+
+[Parameters](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingRegressor.html#sklearn.ensemble.BaggingRegressor):
+* base_estimator = (default None) if the estimator is not selected the base estimator is a decision tree model. 
+* n_estimators = (default 10) is the number of estiimators used in the ensemble 
+* max_samples, and max_features can be used to adjust the amount of data for each 'bag'
+* bootstrap = (default True) which mean it bags data with replacement, when false it does not replace the selected samples. Meaning (whenf False) that you can not have the same data in different bags. 
+
+<sub>See [BaggingClassifier](#BaggingClassifier) for classification<sub>
+
+
+
+-----------
+
+#### [RandomForestRegressor](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+
+`from sklearn.ensemble import RandomForestRegressor`
+
+
+
+
+
+
+
+
+----------
+
 ### Classification
 Problems where you are trying to predict if an outcome will happen or not (a true of false outcome). For example, if a team will win or lose a match. 
 
@@ -283,6 +354,7 @@ SVM's can be used for binary (success/failure) or multi-class classification (ma
 
 * Produces very good results when there is clear margin separation, lots of features compared to samples. 
 * Not so good with large data sets because of long training time, or when there is overlapping in the target classes.
+* Complex model that is hard to visualize and interpret
 * Some examples of when SVC is used is in face detection, handwriting recognition, image classificaiton and bioinformatics. 
 
 [Parameters](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC):
@@ -297,6 +369,79 @@ This diagram helps show how the model works, but instead of just 2-D, it is n-D 
 <sub>[Reference](https://scikit-learn.org/stable/modules/svm.html#classification)<sub> 
 
 -----
+
+#### [KNeighborsClassifier](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-classification)
+
+`from sklearn.neighbors import KNeighborsClassifier`
+
+This method looks at the 'k' closest values within the data to classify the unknown test data. k is an int set by the user and depends on the data, for example if k=1, the unknown test value would be classified as the closest data point in the training data. Larger values for k allow this method to be less affected by noise, but makes the boundaries between classification less distinct. Practical uses: Recommender systems, gene classification, simple image classification.
+
+* Simple algorithm, easy to implement
+* There are no assumptions, a model is not built. This is just an algorithm that tags the unknown data with classes
+* Adaptive model that uses the new data to classify future data 
+* Slow with large amounts of data, and doesnt work as well when there are a large number of features/ overlap. 
+* Cant handle missing values, sensitive to outliers 
+
+
+You can use cross validation on the training data to find the best k value that is results in the most accurate testing parameters. 
+
+[Parameters](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier):
+* n_neighbors = (defualt 5) this sets the k value
+* weights = (default 'uniform') can prodive different weight to the features 
+
+In this diagram k=5 and we would classify the star (unknown class) as class one (red): 
+![](https://cdn-images-1.medium.com/freeze/max/1000/1*vtXMzvjn6hqkGwmYhgUpMQ.gif?q=20)
+<sub>[Reference](https://mc.ai/chapter-1-k-nearest-neighbours-classifier/)<sub>
+
+<sub>Also see: [RadiusNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsClassifier.html#sklearn.neighbors.RadiusNeighborsClassifier) which can handle non-uniform data better, with a radius approach instead of 'k'.<sub>  
+    
+-----
+
+#### [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/tree.html#classification)
+
+`from sklearn.tree import DecisionTreeClassifier`
+
+Learns simple decision rules to make a prediction about a target. The deeper the tree, the more complex the rules are within the tree. At the bottom of the tree are the 'leaf nodes' which classify the unknown data. 
+
+
+* Little data preparation, easy to visualise
+* Can handle multi-output problems 
+* Prone to overfitting the data and creating a tree that doesnt represent the data well 
+* When dealing with large amounts of data, this method is prone to have very large tree, which can be memory intensive due to the complexity
+
+[Parameters](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier):
+* criterion = (default 'gini') this is a function that measures how the splits are done, other option is 'entropy'
+* max_depth = (default = None) the max depth of the tree, if left default it will go untill all the leaves are pure. Changes this if you think your model is being overfit to the training data 
+* min_sample_lead = (default 1) int/float that is the smallest number of samples in a leaf node, this can also be adjusted to help overfitting. 
+
+leaves being pure refers to when making a furthur branch would result in less prediction accuracy than the current node. 
+
+![](https://braveshift.com/wp-content/uploads/2018/11/decision-tree.png)
+<sub> [Reference](https://braveshift.com/get-your-roles-straight-improve-results/)<sub>
+
+----
+
+#### [BaggingClassifier](https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator)
+
+`from sklearn.ensemble import BaggingClassifier`
+
+
+
+
+
+
+---------
+
+#### [RandomForestClassifier](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+
+`from sklearn.ensemble import RandomForestRegressor`
+
+
+
+
+
+
+----------
 
 References: 
    * [Scikit-learn](https://scikit-learn.org/stable/index.html)
