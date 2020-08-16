@@ -30,7 +30,7 @@ Purpose of this notebook:
     * [Linear Discriminant Analysis](#Linear-Discriminant-Analysis)
     * [Quadratic Discriminant Analysis](#Quadratic-Discriminant-Analysis)
     * [Naive Bayes (Multinomial)](#Naive-Bayes-(Multinomial))
-    * [Suppot Vector Classification](#Suppot-Vector-Classification)
+    * [Support Vector Classification](#Support-Vector-Classification)
     * [KNeighborsClassifier](#KNeighborsClassifier)
     * [DecisionTreeClassifier](#DecisionTreeClassifier)
     * [BaggingClassifier](#BaggingClassifier)
@@ -56,6 +56,8 @@ This is a simple, quick to run, model that will not pick up on complex relations
 * fit_intercept = (defualt-True) if false, the y-intercept=0
 * normalize = (default-FALSE) if true, X will be subtracted by the mean and divided by l2-norm. 
 * copy_X = (default-True) if true, X is copied not overwritten
+
+
 -------------
 
 
@@ -75,7 +77,7 @@ The Ridge model on sklearn has build in cross validation to find the best alpha 
 * scoring = (default NONE) [Here](https://scikit-learn.org/stable/modules/model_evaluation.html#the-scoring-parameter-defining-model-evaluation-rules) for all the types of scoring methods
 * cv = (default NONE) cross validation method. int is number of folds
 
-<sub>[Read more](https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/NCSS/Ridge_Regression.pdf)<sub>
+<sub>[Read more](https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/NCSS/Ridge_Regression.pdf)</sub>
 
 ---------
 
@@ -98,7 +100,7 @@ Very similar to RidgeRegression, however Lasso is able to reduce (all the way to
 
 
 
-#### [Elastic-Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net) <a name="Ellastic-Net"> </a>
+#### [Elastic-Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net) <a name="Elastic-Net"> </a>
 
 `from sklearn.linear_model import ElasticNet`
 
@@ -341,7 +343,7 @@ This model is used to estimate the classification probabily based of frequency f
 
 -----------
 
-#### [Suppot Vector Classification](https://scikit-learn.org/stable/modules/svm.html#classification) <a name="Support-Vector-Classification"> </a>
+#### [Support Vector Classification](https://scikit-learn.org/stable/modules/svm.html#classification) <a name="Support-Vector-Classification"> </a>
 
 `from sklearn.svm import SVC`
 
@@ -386,6 +388,7 @@ You can use cross validation on the training data to find the best k value that 
 
 In this diagram k=5 and we would classify the star (unknown class) as class one (red): 
 ![](https://cdn-images-1.medium.com/freeze/max/1000/1*vtXMzvjn6hqkGwmYhgUpMQ.gif?q=20)
+
 <sub>[Reference](https://mc.ai/chapter-1-k-nearest-neighbours-classifier/)<sub>
 
 <sub>Also see: [RadiusNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsClassifier.html#sklearn.neighbors.RadiusNeighborsClassifier) which can handle non-uniform data better, with a radius approach instead of 'k'.<sub>  
