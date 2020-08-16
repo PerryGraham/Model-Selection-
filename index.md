@@ -17,7 +17,7 @@ Purpose of this notebook:
     * [Lasso](#Lasso)
     * [Elastic-Net](#Elastic-Net)
     * [Bayesian](#Bayesian)
-    * [Stochastic Gradient Decent (Regression)](#Stochastic-Gradient-Decent-(Regression))
+    * [Stochastic Gradient Descent (Regression)](#Stochastic-Gradient-Descent-(Regression))
     * [Support Vector Regression](#Support-Vector-Regression)
     * [DecisionTreeRegressor](#DecisionTreeRegressor)
     * [BaggingRegressor](#BaggingRegressor)
@@ -36,10 +36,10 @@ Purpose of this notebook:
     * [BaggingClassifier](#BaggingClassifier)
     * [RandomForestClassifier](#RandomForestClassifier)
 
-### Regression 
+### Regression <a name="Regression"> </a>
 Regression problems invole predicting a value that is continuous. For example predicting the weight of something, or monthly sales. There is a range of possible outcomes. 
 
-#### [LinearRegression](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares)
+#### [LinearRegression](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares) <a name="LinearRegression"> </a>
 
 `from sklearn.linear_model import LinearRegression`
 
@@ -59,7 +59,7 @@ This is a simple, quick to run, model that will not pick up on complex relations
 -------------
 
 
-#### [RidgeRegression](https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification)
+#### [RidgeRegression](https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification) <a name="RidgeRegression"> </a>
 
 `from sklean.linear_model import RidgeCV`
 
@@ -79,7 +79,7 @@ The Ridge model on sklearn has build in cross validation to find the best alpha 
 
 ---------
 
-#### [Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lasso)
+#### [Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lasso) <a name="Lasso"> </a>
 
 `from sklearn.linear_model import Lasso`
 
@@ -98,7 +98,7 @@ Very similar to RidgeRegression, however Lasso is able to reduce (all the way to
 
 
 
-#### [Elastic-Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+#### [Elastic-Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net) <a name="Ellastic-Net"> </a>
 
 `from sklearn.linear_model import ElasticNet`
 
@@ -115,7 +115,7 @@ Is a combination of both RidgeRegression and Lasso, combining both L1 and L2 reg
 
 --------
 
-#### [Bayesian](https://scikit-learn.org/stable/modules/linear_model.html#bayesian-regression)
+#### [Bayesian](https://scikit-learn.org/stable/modules/linear_model.html#bayesian-regression) <a name="Bayesian"> </a>
 
 `from sklean.linear_model import BayesianRidge`
 
@@ -137,7 +137,7 @@ Baysian allows you to represent uncertainty. This approach is able to create tre
     
 ------
 
-#### [Stochastic Gradient Decent (Regression)](https://scikit-learn.org/stable/modules/linear_model.html#stochastic-gradient-descent-sgd)
+#### [Stochastic Gradient Descent (Regression)](https://scikit-learn.org/stable/modules/linear_model.html#stochastic-gradient-descent-sgd) <a name="Stochastic-Gradient-Descent-(Regression)"> </a>
 
 `from sklearn.linear_model import SGDRegressor`
 
@@ -161,7 +161,7 @@ This is because the way the method speeds up the process of gradient decent is t
 
 -------------
 
-#### [Support Vector Regression](https://scikit-learn.org/stable/modules/svm.html#regression)
+#### [Support Vector Regression](https://scikit-learn.org/stable/modules/svm.html#regression) <a name="Support-Vector-Regression"> </a>
 
 `from sklean.svm import SVR`
 
@@ -169,7 +169,7 @@ Support Vectors Machines are more commonly used for classification problems. Ref
 
 --------
 
-#### [DecisionTreeRegressor](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html#decision-tree-regression)
+#### [DecisionTreeRegressor](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html#decision-tree-regression) <a name="DecisionTreeRegressor"> </a>
 
 `from sklearn.tree import DecisionTreeRegressor`
 
@@ -194,7 +194,7 @@ This diagram shows how when the max_depth is set too high (5) it can cause overf
 
 -----
 
-#### [BaggingRegressor](https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator)
+#### [BaggingRegressor](https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator) <a name="BaggingRegressor"> </a>
 
 `from sklearn.ensemble import BaggingRegressor`
 
@@ -218,7 +218,7 @@ The Bagging method 'bags' the training data into independent groups in order to 
 
 -----------
 
-#### [RandomForestRegressor](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+#### [RandomForestRegressor](https://scikit-learn.org/stable/modules/ensemble.html#random-forests) <a name="RandomForestRegressor"> </a>
 
 `from sklearn.ensemble import RandomForestRegressor`
 
@@ -240,7 +240,7 @@ This ensemble method is similar to bagging however the main difference is that t
 ### Classification <a name="Classification"> </a>
 Problems where you are trying to predict if an outcome will happen or not (a true of false outcome). For example, if a team will win or lose a match. 
 
-#### [LogisticRegression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
+#### [LogisticRegression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression) <a name="LogisticRegression"> </a>
 
 `from sklearn.linear_model import LogisticRegression`
 
@@ -264,7 +264,7 @@ For example perhaps we are using age to predict  ablitly to complete a cognitive
 
 -------
 
-#### [Stochastic Gradient Descent (Classifier)](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier)
+#### [Stochastic Gradient Descent (Classifier)](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier) <a name="Stochastic-Gradient-Descent-(Classifier)"> </a>
 
 `from sklearn.linear_model import SGDClassifier`
 
@@ -283,7 +283,7 @@ Used in the same way as [Stochastic Gradient Decent (Regression)](#Stochastic-Gr
 
 ---------
 
-#### [Linear Discriminant Analysis](https://scikit-learn.org/stable/modules/lda_qda.html)
+#### [Linear Discriminant Analysis](https://scikit-learn.org/stable/modules/lda_qda.html) <a name="Linear-Discriminant-Analysis"> </a>
 
 `from sklearn.discriminant_analysis import LinearDiscriminantAnalysis`
 
@@ -302,7 +302,7 @@ Refer [here](#Quadratic-Discriminant-Analysis) for a visual to help understand t
 
 -------
 
-#### [Quadratic Discriminant Analysis](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis.html#sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis)
+#### [Quadratic Discriminant Analysis](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis.html#sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis) <a name="Quadratic-Discriminant-Analysis"> </a>
 
 `from sklearn.discrimiant_analsys import QuadraticDiscriminantAnalysis`
 
@@ -322,7 +322,7 @@ This diagram from the scikit website helps show how disciminant analysis works
 
 -------
 
-#### [Naive Bayes (Multinomial)](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes)
+#### [Naive Bayes (Multinomial)](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes) <a name="Naive-Bayes-(Multinomial)"> </a>
 
 `from sklearn.naive_bayes import MultinomialNB`
 
@@ -341,7 +341,7 @@ This model is used to estimate the classification probabily based of frequency f
 
 -----------
 
-#### [Suppot Vector Classification](https://scikit-learn.org/stable/modules/svm.html#classification)
+#### [Suppot Vector Classification](https://scikit-learn.org/stable/modules/svm.html#classification) <a name="Support-Vector-Classification"> </a>
 
 `from sklearn.svm import SVC`
 
@@ -365,7 +365,7 @@ This diagram helps show how the model works, but instead of just 2-D, it is n-D 
 
 -----
 
-#### [KNeighborsClassifier](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-classification)
+#### [KNeighborsClassifier](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-classification) <a name="KNeighborsClassifier"> </a>
 
 `from sklearn.neighbors import KNeighborsClassifier`
 
@@ -392,7 +392,7 @@ In this diagram k=5 and we would classify the star (unknown class) as class one 
     
 -----
 
-#### [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/tree.html#classification)
+#### [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/tree.html#classification) <a name="DecisionTreeClassifier"> </a>
 
 `from sklearn.tree import DecisionTreeClassifier`
 
@@ -416,7 +416,7 @@ leaves being pure refers to when making a furthur branch would result in less pr
 
 ----
 
-#### [BaggingClassifier](https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator)
+#### [BaggingClassifier](https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator) <a name="BaggingClassifier"> </a>
 
 `from sklearn.ensemble import BaggingClassifier`
 
@@ -440,7 +440,7 @@ This ensemble method works in the same way are [BaggingRegressor](#BaggingRegres
 
 ---------
 
-#### [RandomForestClassifier](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+#### [RandomForestClassifier](https://scikit-learn.org/stable/modules/ensemble.html#random-forests) <a name="RandomForestClassifier"> </a>
 
 `from sklearn.ensemble import RandomForestRegressor`
 
