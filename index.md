@@ -237,7 +237,7 @@ This ensemble method is similar to bagging however the main difference is that t
 
 ----------
 
-### Classification
+### Classification <a name="Classification"> </a>
 Problems where you are trying to predict if an outcome will happen or not (a true of false outcome). For example, if a team will win or lose a match. 
 
 #### [LogisticRegression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
